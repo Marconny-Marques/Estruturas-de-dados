@@ -1,13 +1,21 @@
-public class Vetor{  
-    private String[] elementos;
+import java.lang.reflect.Array;
+
+public class Lista<T> {
+
+    private T[] elementos;
     private int tamanho;
 
-    public Vetor(int capacidade) {
-        this.elementos = new String[capacidade];
+    public Lista(int capacidade) {
+        this.elementos = (T[]) new Object[capacidade];
         this.tamanho = 0;
     }
 
-    public boolean adiciona(String elemento) {
+    public Lista(int capacidade, Class<T> tipoClasse) {
+        this.elementos = (T[]) Array.newInstance(tipoClasse, capacidade);
+        this.tamanho = 0;
+    }
+
+    public boolean adiciona(T elemento) {
         if(this.tamanho < this.elementos.length) {
             this.elementos[this.tamanho] = elemento;
             this.tamanho++;
@@ -19,7 +27,7 @@ public class Vetor{
     private void aumentaCapacidade() {
         this.aumentaCapacidade();
         if (this.tamanho == this.elementos.length) {
-            String[] elementosNovos = new String[this.elementos.length*2];
+            T[] elementosNovos = (T[]) new Object [this.elementos.length*2];
             for(int i=0; i<this.elementos.length; i++) {
                 elementosNovos[i] = this.elementos[1];
             }
@@ -28,24 +36,9 @@ public class Vetor{
     }
 
 
-    public boolean adiciona(int posicao,String elemento) {
-        if(!(posicao>= 0 && posicao<tamanho)) {
-            throw new IllegalArgumentException("Posição inválida");
-        }
-        
-        this.aumentaCapacidade();
+  
 
-        //mover todos os elementos
-        for(int i=this.tamanho-1; i>=posicao; i--) {
-            this.elementos[i+1] = this.elementos[i];
-        }
-        this.elementos[posicao] = elemento;
-        this.tamanho++;
-        return false;
-
-    }
-
-    public String busca(int posicao) {
+    public Object busca(int posicao) {
         if(!(posicao>= 0 && posicao<tamanho)) {
             throw new IllegalArgumentException("Posição inválida");
         }
@@ -53,7 +46,7 @@ public class Vetor{
         return this.elementos[posicao];
     }
 
-    public int busca(String elemento) {
+    public int busca(Object elemento) {
         for(int i=0; i<this.tamanho; i++) {
             if(this.elementos[i].equals(elemento)) {
                 return i;
@@ -98,6 +91,4 @@ public class Vetor{
 
             return s.toString();
         }
-        
-}            
-
+}
