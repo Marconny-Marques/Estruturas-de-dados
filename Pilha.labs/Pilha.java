@@ -1,11 +1,11 @@
-package Exerlabs;
+
 
 public class Pilha<T> {
 
     public void empilha(Livro livro1) {
     }
 
-    public Integer desempilha() {
+    public T desempilha() {
         return null;
     }
 

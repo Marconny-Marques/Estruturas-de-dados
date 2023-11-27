@@ -5,6 +5,7 @@ public class Aula14 {
     for (int i = 1; i<=10; i++) {
         pilha.empilha(i);
     }
+    
     system.out.println(pilha);
     system.out.println(pilha.tamanho());
 }

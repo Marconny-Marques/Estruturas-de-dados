@@ -1,4 +1,4 @@
-package Exerlabs;
+
 
 import java.util.Scanner;
 

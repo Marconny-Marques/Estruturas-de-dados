@@ -1,5 +1,3 @@
-package Exerlabs;
-
 public class Exer03 {
     public static void main(String[] args) {
         Pilha<Livro> pilha = new Pilha<Livro>();

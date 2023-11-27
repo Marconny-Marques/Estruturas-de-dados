@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class exer01 {
+public class Exer01 {
     public static void main(String[] args) {
         Pilha<Integer> pilha = new Pilha<Integer>();
 
