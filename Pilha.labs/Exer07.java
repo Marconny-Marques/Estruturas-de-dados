@@ -2,7 +2,7 @@ import java.util.Stack;
 
 public class Exer07 {
     public static void main(String[] args) {
-        imprimeResultado(2);
+        imprimeResultado(6);
         imprimeResultado(4);
         imprimeResultado(10);
         imprimeResultado(25);
